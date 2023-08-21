@@ -197,8 +197,8 @@ function bsc_settings_save(){
 
    $absc_temperature=floatval(sanitize_text_field($_POST['temperature']));
 
-    $absc_temperature_new=sanitize_text_field($absc_temperature);
-   update_option('bsc_temperature',$absc_temperature_new);
+   
+   update_option('bsc_temperature',$absc_temperature);
 
 
 
@@ -206,20 +206,20 @@ function bsc_settings_save(){
 
 
   $absc_max_tokens=intval(sanitize_text_field($_POST['max-tokens']));
-    $absc_max_tokens_new=sanitize_text_field($absc_max_tokens);
+   
      
 
-   update_option('bsc_max_tokens',$absc_max_tokens_new);
+   update_option('bsc_max_tokens',$absc_max_tokens);
 
 
 
  
      $absc_presence_penalty=intval(sanitize_text_field($_POST['presence-penalty']));
-    $absc_presence_penalty_new=sanitize_text_field($absc_presence_penalty);
+    
 
 
 
-   update_option('bsc_presence_penalty',$absc_presence_penalty_new);
+   update_option('bsc_presence_penalty',$absc_presence_penalty);
    
     $absc_api_key=sanitize_text_field($_POST['api-key'] );
 
@@ -227,21 +227,21 @@ function bsc_settings_save(){
 
 
      $absc_frequency_penalty=intval(sanitize_text_field($_POST['frequency-penalty']));
-     $absc_frequency_penalty_new=sanitize_text_field($absc_frequency_penalty);
+     
 
 
 
 
 
 
-   update_option('bsc_frequency_penalty',$absc_frequency_penalty_new);
+   update_option('bsc_frequency_penalty',$absc_frequency_penalty);
      $absc_top_p=intval(sanitize_text_field($_POST['top-p']));
 
-    $absc_top_p_new=sanitize_text_field($absc_top_p);
+   
 
 
 
-   update_option('bsc_top_p',$absc_top_p_new);
+   update_option('bsc_top_p',$absc_top_p);
 
    update_option('bsc_accepted_comment',sanitize_text_field($_POST['bsc_accepted_comment']));
    update_option('bsc_rejected_comment',sanitize_text_field($_POST['bsc_rejected_comment']));
@@ -378,7 +378,7 @@ else  if ($absc_rejected_comment=='Delete')
 
 
  
-  wp_safe_redirect($current_url);
+  wp_safe_redirect($current_url_new);
    exit();
 
 
