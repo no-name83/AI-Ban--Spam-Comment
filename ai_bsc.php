@@ -16,9 +16,9 @@ License: GPL2
 if ( ! defined( 'ABSPATH' ) ) exit;
 require_once __DIR__ . '/ai_bsc_function.php';
 
-if ( ! class_exists( 'ai_bsc_controls' ) ) {
+if ( ! class_exists( 'aibsc_bsc_controls' ) ) {
 
-  class ai_bsc_controls{
+  class aibsc_bsc_controls{
 
 
    function __construct() {
@@ -31,8 +31,8 @@ if ( ! class_exists( 'ai_bsc_controls' ) ) {
   {
 
 
-  $ai_bsc_controls=new   ai_bsc_controls;
-    add_menu_page('AI Ban Spam Comment','AI_Ban_Spam_Comment','manage_options','AI-Ban-Spam-Comment-admin-menu',array($ai_bsc_controls,'AI_Ban_Spam_Comment_scripts_page'),'dashicons-shield-alt',200);
+  $aibsc_bsc_controls=new   aibsc_bsc_controls;
+    add_menu_page('AI Ban Spam Comment','AI_Ban_Spam_Comment','manage_options','AI-Ban-Spam-Comment-admin-menu',array($aibsc_bsc_controls,'AI_Ban_Spam_Comment_scripts_page'),'dashicons-shield-alt',200);
 
 
 
@@ -56,12 +56,12 @@ if ( ! class_exists( 'ai_bsc_controls' ) ) {
 
 
    
-$absc_api_key=esc_attr(get_option('bsc_api_key'));
-$absc_temperature=esc_attr(get_option('bsc_temperature'));
-$absc_max_tokens=esc_attr(get_option('bsc_max_tokens'));
-$absc_top_p=esc_attr(get_option('bsc_top_p'));
-$absc_frequency_penalty=esc_attr(get_option('bsc_frequency_penalty'));
-$absc_presence_penalty=esc_attr(get_option('bsc_presence_penalty'));
+$abscai_api_key=esc_attr(get_option('abscai_api_key'));
+$abscai_temperature=esc_attr(get_option('abscai_temperature'));
+$abscai_max_tokens=esc_attr(get_option('abscai_max_tokens'));
+$abscai_top_p=esc_attr(get_option('abscai_top_p'));
+$abscai_frequency_penalty=esc_attr(get_option('abscai_frequency_penalty'));
+$abscai_presence_penalty=esc_attr(get_option('abscai_presence_penalty'));
 
 
 ?>
@@ -77,7 +77,7 @@ $absc_presence_penalty=esc_attr(get_option('bsc_presence_penalty'));
       <div class="bsc_form_row">
         <label class="bsc_label">Temperature:</label>
         <input type="text" class="regular-text"  name="temperature" value="<?php
-        echo  esc_attr($absc_temperature)  ;
+        echo  esc_attr($abscai_temperature)  ;
         ?>">
        
     </div>
@@ -85,7 +85,7 @@ $absc_presence_penalty=esc_attr(get_option('bsc_presence_penalty'));
        <div class="bsc_form_row">
         <label class="bsc_label">API KEY:</label>
         <input type="text" class="regular-text"  name="api-key" value="<?php
-        echo  esc_attr($absc_api_key)  ;
+        echo  esc_attr($abscai_api_key)  ;
         ?>">
         
     </div>
@@ -93,7 +93,7 @@ $absc_presence_penalty=esc_attr(get_option('bsc_presence_penalty'));
      <div class="bsc_form_row">
         <label class="bsc_label">Max Tokens:</label>
         <input type="text" class="regular-text"   name="max-tokens" value="<?php
-        echo  esc_attr($absc_max_tokens) ;
+        echo  esc_attr($abscai_max_tokens) ;
         ?>">
         
     </div>
@@ -101,7 +101,7 @@ $absc_presence_penalty=esc_attr(get_option('bsc_presence_penalty'));
        <div class="bsc_form_row">
         <label class="bsc_label">Presence Penalty:</label>
         <input type="text" class="regular-text"   name="presence-penalty" value="<?php
-        echo  esc_attr($absc_presence_penalty)  ;
+        echo  esc_attr($abscai_presence_penalty)  ;
         ?>">
        
     </div>
@@ -109,7 +109,7 @@ $absc_presence_penalty=esc_attr(get_option('bsc_presence_penalty'));
        <div class="bsc_form_row">
         <label class="bsc_label">Frequence Penalty:</label>
         <input type="text" class="regular-text"  name="frequency-penalty" value="<?php
-        echo  esc_attr($absc_frequency_penalty) ;
+        echo  esc_attr($abscai_frequency_penalty) ;
         ?>">
         
     </div>
@@ -117,7 +117,7 @@ $absc_presence_penalty=esc_attr(get_option('bsc_presence_penalty'));
           <div class="bsc_form_row">
         <label class="bsc_label">Top_P:</label>
         <input type="text" class="regular-text"  name="top-p" value="<?php
-        echo  esc_attr($absc_top_p) ;
+        echo  esc_attr($abscai_top_p) ;
         ?>">
         
     </div>
@@ -127,14 +127,14 @@ $absc_presence_penalty=esc_attr(get_option('bsc_presence_penalty'));
        
 
          <select class="regular-text" name="bsc_accepted_comment">
-                 <?php if(esc_attr(get_option('bsc_accepted_comment'))=='Pending'){
+                 <?php if(esc_attr(get_option('abscai_accepted_comment'))=='Pending'){
     echo '<option value="Pending" selected>Pending</option>';
      echo '<option value="Publish">Publish</option>'; 
      
  
 }
   
-  else if(esc_attr(get_option('bsc_accepted_comment'))=='Publish'){
+  else if(esc_attr(get_option('abscai_accepted_comment'))=='Publish'){
     echo '<option value="Publish" selected>Publish</option>'; 
     echo '<option value="Pending" >Pending</option>'; 
   }
@@ -148,14 +148,14 @@ $absc_presence_penalty=esc_attr(get_option('bsc_presence_penalty'));
        
 
          <select class="regular-text" name="bsc_rejected_comment">
-             <?php if(esc_attr(get_option('bsc_rejected_comment'))=='Trash'){
+             <?php if(esc_attr(get_option('abscai_rejected_comment'))=='Trash'){
     echo '<option value="Trash" selected>Trash</option>';
      echo '<option value="Delete">Delete</option>'; 
      
  
 }
   
-  else if(esc_attr(get_option('bsc_rejected_comment'))=='Delete'){
+  else if(esc_attr(get_option('abscai_rejected_comment'))=='Delete'){
     echo '<option value="Delete" selected>Delete</option>'; 
     echo '<option value="Trash" >Trash</option>'; 
   }
@@ -193,40 +193,52 @@ $absc_presence_penalty=esc_attr(get_option('bsc_presence_penalty'));
 function bsc_settings_save(){
 
 
-  if (isset($_POST['bsc_btn'] )   && wp_verify_nonce($_POST["aibsc"], "aibsc") && is_user_logged_in()){
+ // if (isset($_POST['bsc_btn'] )   && wp_verify_nonce(wp_unslash(sanitize_text_field($_POST["aibsc"])), "aibsc") && is_user_logged_in())
+	if (isset($_POST['bsc_btn']) && is_user_logged_in() ) {
+		# code...
 
-   $absc_temperature=floatval(sanitize_text_field($_POST['temperature']));
+
+
+		if ( ! isset($_POST["aibsc"]) ||  ! wp_verify_nonce(sanitize_text_field(wp_unslash($_POST["aibsc"])), "aibsc") ){
+
+     exit();
+ }
+
+    else{
+
+
+  $abscai_temperature=floatval(sanitize_text_field($_POST['temperature']));
 
    
-   update_option('bsc_temperature',$absc_temperature);
+   update_option('abscai_temperature',$abscai_temperature);
 
 
 
   
 
 
-  $absc_max_tokens=intval(sanitize_text_field($_POST['max-tokens']));
+  $abscai_max_tokens=intval(sanitize_text_field($_POST['max-tokens']));
    
      
 
-   update_option('bsc_max_tokens',$absc_max_tokens);
+   update_option('abscai_max_tokens',$abscai_max_tokens);
 
 
 
  
-     $absc_presence_penalty=intval(sanitize_text_field($_POST['presence-penalty']));
+     $abscai_presence_penalty=intval(sanitize_text_field($_POST['presence-penalty']));
     
 
 
 
-   update_option('bsc_presence_penalty',$absc_presence_penalty);
+   update_option('abscai_presence_penalty',$abscai_presence_penalty);
    
-    $absc_api_key=sanitize_text_field($_POST['api-key'] );
+    $abscai_api_key=sanitize_text_field($_POST['api-key'] );
 
-   update_option('bsc_api_key',$absc_api_key);
+   update_option('abscai_api_key',$abscai_api_key);
 
 
-     $absc_frequency_penalty=intval(sanitize_text_field($_POST['frequency-penalty']));
+     $abscai_frequency_penalty=intval(sanitize_text_field($_POST['frequency-penalty']));
      
 
 
@@ -234,31 +246,22 @@ function bsc_settings_save(){
 
 
 
-   update_option('bsc_frequency_penalty',$absc_frequency_penalty);
-     $absc_top_p=intval(sanitize_text_field($_POST['top-p']));
+   update_option('abscai_frequency_penalty',$abscai_frequency_penalty);
+     $abscai_top_p=intval(sanitize_text_field($_POST['top-p']));
 
    
 
 
 
-   update_option('bsc_top_p',$absc_top_p);
+   update_option('abscai_top_p',$abscai_top_p);
 
-   update_option('bsc_accepted_comment',sanitize_text_field($_POST['bsc_accepted_comment']));
-   update_option('bsc_rejected_comment',sanitize_text_field($_POST['bsc_rejected_comment']));
+   update_option('abscai_accepted_comment',sanitize_text_field($_POST['bsc_accepted_comment']));
+   update_option('abscai_rejected_comment',sanitize_text_field($_POST['bsc_rejected_comment']));
 
-
-
-
+    }
 
 
-
-
-
-
-
-
-
-  }
+	}
 
 
 
@@ -278,16 +281,16 @@ function bsc_settings_save(){
 
 
   function bsc_check_comment($approved, $commentdata){
-    $absc_api_key=esc_attr(get_option('bsc_api_key'));
-    $absc_temperature=esc_attr(get_option('bsc_temperature'));
-$absc_max_tokens=esc_attr(get_option('bsc_max_tokens'));
-$absc_top_p=esc_attr(get_option('bsc_top_p'));
-$absc_frequency_penalty=esc_attr(get_option('bsc_frequency_penalty'));
-$absc_presence_penalty=esc_attr(get_option('bsc_presence_penalty'));
-$absc_accepted_comment=esc_attr(get_option('bsc_accepted_comment'));
-$absc_rejected_comment=esc_attr(get_option('bsc_rejected_comment'));
+    $abscai_api_key=esc_attr(get_option('abscai_api_key'));
+    $abscai_temperature=esc_attr(get_option('abscai_temperature'));
+$abscai_max_tokens=esc_attr(get_option('abscai_max_tokens'));
+$abscai_top_p=esc_attr(get_option('abscai_top_p'));
+$abscai_frequency_penalty=esc_attr(get_option('abscai_frequency_penalty'));
+$abscai_presence_penalty=esc_attr(get_option('abscai_presence_penalty'));
+$abscai_accepted_comment=esc_attr(get_option('abscai_accepted_comment'));
+$abscai_rejected_comment=esc_attr(get_option('abscai_rejected_comment'));
 $headers = array(
-        'Authorization' => 'Bearer ' . $absc_api_key,
+        'Authorization' => 'Bearer ' . $abscai_api_key,
         'Content-Type' => 'application/json',
     );
 
@@ -296,7 +299,7 @@ $api_url = 'https://api.openai.com/v1/completions';
     
 
 
-   $current_url = $_SERVER['HTTP_REFERER'];
+   $current_url = sanitize_url($_SERVER['HTTP_REFERER']);
    $current_url_new = sanitize_url( $current_url, array( 'http', 'https' ) );
   $post_id = url_to_postid($current_url_new);
 
@@ -349,7 +352,7 @@ $query_comment = $commentdata['comment_content'];
 
 if (stripos($response_body['choices'][0]['text'], 'Yes') !== false) {
     
-    if ($bsc_accepted_comment=='Publish') {
+    if ($abscai_accepted_comment=='Publish') {
    
      
       return 1;
@@ -365,14 +368,14 @@ if (stripos($response_body['choices'][0]['text'], 'Yes') !== false) {
 else {
 
 
-  if ($absc_rejected_comment=='Trash') {
+  if ($abscai_rejected_comment=='Trash') {
    
     return 'trash';
   }
 
 
 
-else  if ($absc_rejected_comment=='Delete')
+else  if ($abscai_rejected_comment=='Delete')
 {
  
 
@@ -408,21 +411,21 @@ else  if ($absc_rejected_comment=='Delete')
 }
 }
 
- $ai_bsc_controls=new   ai_bsc_controls;
+ $aibsc_bsc_controls=new   aibsc_bsc_controls;
 
 
- add_action('admin_menu',array($ai_bsc_controls,'AI_Ban_Spam_Comment_admin_menu_option'));
+ add_action('admin_menu',array($aibsc_bsc_controls,'AI_Ban_Spam_Comment_admin_menu_option'));
 
-add_action( 'wp_enqueue_style', array($ai_bsc_controls,'bsc_css', 10 ));
+add_action( 'wp_enqueue_style', array($aibsc_bsc_controls,'bsc_css', 10 ));
 
 
 
-    add_action('admin_head', array($ai_bsc_controls,'bsc_css'));
+    add_action('admin_head', array($aibsc_bsc_controls,'bsc_css'));
    
   
-    $bsc_all_func =new   bsc_all_func;
- register_activation_hook( __FILE__, array($bsc_all_func, 'bsc_create_db') );
-  register_deactivation_hook(__FILE__, array($bsc_all_func, 'bsc_delete_records'));
+    $abscai_all_func =new   abscai_all_func;
+ register_activation_hook( __FILE__, array($abscai_all_func, 'abscai_create_db') );
+  register_deactivation_hook(__FILE__, array($abscai_all_func, 'abscai_delete_records'));
 
 
 
