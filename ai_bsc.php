@@ -304,7 +304,7 @@ $api_url = 'https://api.openai.com/v1/completions';
   $post_id = url_to_postid($current_url_new);
 
 
-   $post_id = url_to_postid($url);
+  
  $post_id->ID;
 $content_post = get_post($post_id);
  $content = $content_post->post_content;
