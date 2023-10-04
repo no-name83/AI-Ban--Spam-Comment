@@ -321,11 +321,11 @@ $query_comment = $commentdata['comment_content'];
           $body = array(
             'prompt' => $queryOne,
             'model' => 'text-davinci-003',
-            'temperature' => (float)$absc_temperature,
-            'max_tokens' => (int)$absc_max_tokens,
-            'top_p' => (int)$absc_top_p,
-            'frequency_penalty' => (int)$absc_frequency_penalty,
-            'presence_penalty' => (int)$absc_presence_penalty,
+            'temperature' => (float)$abscai_temperature,
+            'max_tokens' => (int)$abscai_max_tokens,
+            'top_p' => (int)$abscai_top_p,
+            'frequency_penalty' => (int)$abscai_frequency_penalty,
+            'presence_penalty' => (int)$abscai_presence_penalty,
           );
           $args = array(
         'headers' => $headers,
